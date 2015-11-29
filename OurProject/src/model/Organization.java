@@ -2,12 +2,12 @@ package model;
 
 public class Organization {
 private String name;
+private int number;
 private String address;
 private String city;
 private String state;
 private String region;
-private String zip;
-private String country;
+private int zip;
 /**
  * 
  */
@@ -22,14 +22,13 @@ public Organization() {
  * @param zip
  * @param country
  */
-public Organization(String name, String address, String city, String state, String region, String zip, String country) {
+public Organization(String name, String address, String city, String state, String region, int zip) {
 	this.name = name;
 	this.address = address;
 	this.city = city;
 	this.state = state;
 	this.region = region;
 	this.zip = zip;
-	this.country = country;
 }
 /**
  * @return the name
@@ -94,26 +93,26 @@ public void setRegion(String region) {
 /**
  * @return the zip
  */
-public String getZip() {
+public int getZip() {
 	return zip;
 }
 /**
  * @param zip the zip to set
  */
-public void setZip(String zip) {
+public void setZip(int zip) {
 	this.zip = zip;
 }
 /**
- * @return the country
+ * @return the number
  */
-public String getCountry() {
-	return country;
+public int getNumber() {
+	return number;
 }
 /**
- * @param country the country to set
+ * @param number the number to set
  */
-public void setCountry(String country) {
-	this.country = country;
+public void setNumber(int number) {
+	this.number = number;
 }
 
 }

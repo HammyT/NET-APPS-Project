@@ -4,9 +4,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Sport Chirp - Add an Organization</title>
 </head>
 <body>
+<h1> Sport Chirp - Add an Organization</h1>
 
+<form name=addForm action= addOrg method=get >
+
+    <label>
+      Org. Name:
+   </label>
+   <input type=text name=name value="" />
+   <br />
+
+   <label>
+      Org. Number:
+   </label>
+   <input type=text name=number value="" />
+   <br />
+   <label>
+      Org. Address:
+   </label>
+   <input type=text name=address value="" />
+   <br />
+   
+   <label>
+      Org. City:
+   </label>
+   <input type=text name=city value="" />
+   <br />
+   
+      <label>
+      Org. State:
+   </label>
+   <input type=text name=state value="" />
+   <br />
+   
+      <label>
+      Org. Region:
+   </label>
+   <input type=text name=region value="" />
+   <br />
+   
+         <label>
+      Product Zip:
+   </label>
+   <input type=text name=zip value="" />
+   <br />
+   
+   <input type=submit name=submit value="Add the Organization" />
+
+</form>
 </body>
 </html>

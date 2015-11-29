@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.addOrgQuery;
+import dbHelper.updateOrgQuery;
 import model.Organization;
 
 /**
- * Servlet implementation class addOrgServlet
+ * Servlet implementation class updateOrgServlet
  */
-@WebServlet("/addOrg")
-public class addOrgServlet extends HttpServlet {
+@WebServlet("/updateOrg")
+public class updateOrgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addOrgServlet() {
+    public updateOrgServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,7 +48,7 @@ public class addOrgServlet extends HttpServlet {
 		    String region = request.getParameter("region"); 
 		    int zip = Integer.parseInt(request.getParameter("zip"));
 		
-
+	
 		    Organization org = new Organization();
 		    org.setName(name);
 			org.setNumber(number);
@@ -57,19 +57,17 @@ public class addOrgServlet extends HttpServlet {
 			org.setState(state);
 			org.setRegion(region);
 			org.setZip(zip);
-			
-			
-		    addOrgQuery aq = new addOrgQuery("project", "root", "");
-		    
+		
 
-		    aq.doAdd(org);
-		    
+		updateOrgQuery uq = new updateOrgQuery("grocery", "root", "");
+		uq.doUpdate(org);
+		
 	
-		    String url = "/readOrg";
-		    
-		    RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		    dispatcher.forward(request, response);
-		    
+		String url = "/readOrg";
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
+		
 	}
 
 }

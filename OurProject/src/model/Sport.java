@@ -1,7 +1,7 @@
 package model;
 
 public class Sport {
-private String sport;
+private String name;
 private String description;
 /**
  * 
@@ -13,20 +13,20 @@ public Sport() {
  * @param description
  */
 public Sport(String sport, String description) {
-	this.sport = sport;
+	this.name = sport;
 	this.description = description;
 }
 /**
  * @return the sport
  */
-public String getSport() {
-	return sport;
+public String getName() {
+	return name;
 }
 /**
  * @param sport the sport to set
  */
-public void setSport(String sport) {
-	this.sport = sport;
+public void setName(String name) {
+	this.name = name;
 }
 /**
  * @return the description
