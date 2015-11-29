@@ -90,7 +90,7 @@ public class readOrgQuery {
 				table += org.getNumber();
 				table +="</td>";
 				table +="<td>";
-				   table += "<a href=updateOrgForm?name=" + org.getName() + " >update</a> <a href=delete?name=" + org.getName() + " >delete</a>";
+				   table += "<a href=updateOrgForm?name=" + org.getName() + " >update</a> <a href=deleteOrg?name=" + org.getName() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 				
