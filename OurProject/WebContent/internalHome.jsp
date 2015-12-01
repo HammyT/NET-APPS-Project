@@ -24,9 +24,7 @@ table {width: 100%;}
 			<p> <a href="sportList.jsp">Click Here</a> to Search by Sport </p>
 		</td>
 		<td>
-			 <form action="sportList.jsp">
-			 	<input type
-			</form> 
+			 <p>Search function</p> 
 		</td>
 	</tr>
 
