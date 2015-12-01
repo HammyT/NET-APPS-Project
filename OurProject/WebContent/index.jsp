@@ -8,5 +8,28 @@
 </head>
 <body>
 
+<h1>Welcome to SportChirp!</h1>
+<p>_____________________________________________________________________________________</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>
+<form name="amF" action=calculate method=get>
+
+<p>
+<label>Annual Rate: </label>
+	<input type="text" name="percent">
+	
+<label>Term in years: </label>
+	<input type="text" name="years">
+</form>
+
+</p>
+
+
+
+
 </body>
 </html>
