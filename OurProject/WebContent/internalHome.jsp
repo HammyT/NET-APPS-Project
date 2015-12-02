@@ -26,7 +26,7 @@ table {width: 100%;}
 		<td>
 		<form>
 			<label>Search By: </label>
-			<input list="search" name="searchType" />
+			<input list="search" name="searchType" placeholder="Select a Field..." />
 			</label>
 				<datalist id="search">
 					<option value="Sport"/>
@@ -34,8 +34,8 @@ table {width: 100%;}
 					<option value="Location"/>
 			</datalist>
 			 
-			<input type="text" name="searchR">
-			<input type="submit" value="Submit">
+			<input type="text" name="searchR" placeholder="Search..."/>
+			<input type="submit" value="Submit"/>
 			</form>
 		</td>
 	</tr>
