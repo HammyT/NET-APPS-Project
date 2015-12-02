@@ -6,10 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sports List Page</title>
 <style>
-body { background-color: black;}
+body { background-image: url("sports.jpg");}
 a {color: black;}
-td {background-color: green; text-align: center;}
-table {width: 100%;}
+td {background-color: brown;}
+table, td, tr {boarder: 2px solid black;}
+table {width: 100%; border-collapse: collapse;}
+h1 {text-align: center}
 </style>
 </head>
 <body>
