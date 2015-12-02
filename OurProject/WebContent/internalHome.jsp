@@ -24,7 +24,19 @@ table {width: 100%;}
 			<p> <a href="sportList.jsp">Click Here</a> to Search by Sport </p>
 		</td>
 		<td>
-			 <p>Search function</p> 
+		<form>
+			<label>Search By: </label>
+			<input list="search" name="searchType" />
+			</label>
+				<datalist id="search">
+					<option value="Sport"/>
+					<option value="Team Name"/>
+					<option value="Location"/>
+			</datalist>
+			 
+			<input type="text" name="searchR">
+			<input type="submit" value="Submit">
+			</form>
 		</td>
 	</tr>
 
@@ -32,3 +44,4 @@ table {width: 100%;}
 </table>
 </body>
 </html>
+
