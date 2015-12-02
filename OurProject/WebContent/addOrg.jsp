@@ -6,54 +6,108 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sport Chirp - Add an Organization</title>
 </head>
+<style>
+body { background-image: url("sports.jpg");}
+a {color: black;}
+td {background-color: brown;}
+table, td, tr {boarder: 2px solid black;}
+table {width: 100%; border-collapse: collapse;}
+h1 {text-align: center}
+</style>
 <body>
-<h1> Sport Chirp - Add an Organization</h1>
-
+<table>
 <form name=addForm action= addOrg method=get >
-
-    <label>
-      Org. Name:
-   </label>
-   <input type=text name=name value="" />
-   <br />
-
-   <label>
-      Org. Number:
-   </label>
-   <input type=text name=number value="" />
-   <br />
-   <label>
-      Org. Address:
-   </label>
-   <input type=text name=address value="" />
-   <br />
-   
-   <label>
-      Org. City:
-   </label>
-   <input type=text name=city value="" />
-   <br />
-   
-      <label>
-      Org. State:
-   </label>
-   <input type=text name=state value="" />
-   <br />
-   
-      <label>
-      Org. Region:
-   </label>
-   <input type=text name=region value="" />
-   <br />
-   
-         <label>
-      Product Zip:
-   </label>
-   <input type=text name=zip value="" />
-   <br />
-   
-   <input type=submit name=submit value="Add the Organization" />
-
+	<tr>
+		<td colspan="2">
+			<h1> Sport Chirp - Add an Organization</h1>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+    		<label>
+     			 Org. Name:
+   			</label>
+   		</td>
+   		<td>
+   			<input type=text name=name value="" />
+   			<br />
+		</td>
+	</tr>	
+	<tr>
+		<td>
+  			 <label>
+     		 Org. Number:
+   			 </label>
+   		</td>
+   		<td>
+   			<input type=text name=number value="" />
+  			 <br />
+   		</td>
+   	</tr>
+   	<tr>
+   		<td>
+   			<label>
+      		Org. Address:
+   			</label>
+   		</td>
+   		<td>
+   			<input type=text name=address value="" />
+   			<br />
+   		</td>
+   </tr>
+   <tr>
+  		 <td>
+   			<label>
+    		  Org. City:
+   			</label>
+   		  </td>
+   		  <td>
+   			<input type=text name=city value="" />
+   			<br />
+  		</td>
+   </tr>
+   <tr>
+   		<td>
+      		<label>
+      		Org. State:
+   			</label>
+   		</td>
+   		<td>
+   			<input type=text name=state value="" />
+  			 <br />
+   		</td>
+   </tr>
+   <tr>
+   		<td>
+      		<label>
+      		Org. Region:
+   			</label>
+   		</td>
+   		<td>
+  		 	<input type=text name=region value="" />
+  			 <br />
+   		</td>
+   </tr>
+   <tr>
+   		<td>
+         	<label>
+     		 Product Zip:
+   			</label>
+   		</td>
+   		<td>
+  			 <input type=text name=zip value="" />
+  			 <br />
+   		</td>
+   	</tr>
+   	<tr>
+   		<td>
+   		 
+   		</td>
+   		<td>
+   		<input type=submit name=submit value="Add the Organization" />
+		</td>
+	</tr>
 </form>
+</table>
 </body>
 </html>

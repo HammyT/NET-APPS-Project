@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Internal Home Page</title>
 <style>
-body { background-color: black;}
+body { background-image: url("sports.jpg");}
 a {color: black;}
-td {background-color: green; text-align: center;}
+td {background-color: brown; text-align: center;}
 table {width: 100%;}
 </style>
 </head>

@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+body { background-image: url("sports.jpg");}
+a {color: black;}
+td {background-color: brown; text-align: center;}
+table {width: 100%;}
+</style>
 </head>
 <body>
 
