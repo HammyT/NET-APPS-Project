@@ -4,9 +4,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>List of Coaches</title>
+<style>
+body { background-color: black;}
+a {color: black;}
+td {background-color: green; text-align: center;}
+table {width: 100%;}
+</style>
 </head>
 <body>
+	<table>
+	<tr>
+		<td colspan="2">
+			<h1>List of coaches!</h1>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p> List of coaches </p>
+		</td>
+		<td>
+			 <p>functions</p> 
+		</td>
+	</tr>
+
+
+</table>
 
 </body>
 </html>

@@ -118,6 +118,15 @@ h1 {text-align: center}
    		<input type=submit name=submit value="Add the Team" />
 		</td>
 	</tr>
+	<tr>
+   		<td>
+   		 <br>
+   		 <br>
+   		</td>
+   		<td>
+   		<a href="internalHome.jsp">Take Me Back Home</a>
+		</td>
+	</tr>
 </form>
 </table>
 

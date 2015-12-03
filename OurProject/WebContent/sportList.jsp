@@ -29,7 +29,15 @@ h1 {text-align: center}
 			 <p>functions</p> 
 		</td>
 	</tr>
-
+	<tr>
+   		<td>
+   		 <br>
+   		 <br>
+   		</td>
+   		<td>
+   		<a href="internalHome.jsp">Take Me Back Home</a>
+		</td>
+	</tr>
 
 </table>
 </body>
