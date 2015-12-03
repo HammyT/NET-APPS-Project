@@ -15,8 +15,8 @@ table {width: 100%; border-collapse: collapse;}
 h1 {text-align: center}
 </style>
 <body>
-<table>
 <form name=addForm action= addOrg method=get >
+<table>
 	<tr>
 		<td colspan="2">
 			<h1> Sport Chirp - Add an Organization</h1>
@@ -116,7 +116,7 @@ h1 {text-align: center}
    		<a href="internalHome.jsp">Take Me Back Home</a>
 		</td>
 	</tr>
-</form>
 </table>
+</form>
 </body>
 </html>

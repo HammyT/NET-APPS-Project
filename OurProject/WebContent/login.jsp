@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login Page</title>
 </head>
 <body>
-hi
+
+	<form id="loginForm" action="Login" method="post">
+	<h1>Login Here:</h1>	
+	<br>
+	<input type="text" name="username" placeholder="Username.." required>
+	<br>
+	<input type="password" name="password" placeholder="Password.." required>
+	<br>
+	<input type="submit" value="Login">
+	$(errorMessage)
+	</form>
+
 </body>
 </html>
