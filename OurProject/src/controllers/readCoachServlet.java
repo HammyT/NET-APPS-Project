@@ -40,7 +40,7 @@ public class readCoachServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Create a ReadQuery helper object
-		readCoachQuery rq = new readCoachQuery("project", "root", "General1");
+		readCoachQuery rq = new readCoachQuery("project", "root", "");
 		
 		// Get the html table from the REadQuery object
 		rq.doRead();

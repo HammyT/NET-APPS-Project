@@ -40,7 +40,7 @@ public class readTeamByOrgServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Create a ReadQuery helper object
-		readTeamByOrgQuery rq = new readTeamByOrgQuery("project", "root", "General1");
+		readTeamByOrgQuery rq = new readTeamByOrgQuery("project", "root", "");
 		
 		// Get the html table from the REadQuery object
 		rq.doRead();

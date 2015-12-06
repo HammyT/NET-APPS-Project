@@ -6,16 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Coach;
+import model.Team;
 
 
-
-public class readCoachQuery {
-	
+public class searchTeamQuery {
 	private Connection connection;
 	private ResultSet results;
 	
-	public readCoachQuery(String dbName, String uname, String pwd){
+	public searchTeamQuery(String dbName, String uname, String pwd){
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		
 		// set up the driver
@@ -37,8 +35,8 @@ public class readCoachQuery {
 		}
 	}
 	
-	public void doRead(){
-		String query = "select * from coach";
+	public void doRead(String keyword){
+		String query = "SELECT * FROM team WHERE teamName LIKE '%" + keyword + "%'";
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
@@ -55,26 +53,31 @@ public class readCoachQuery {
 		
 		try {
 			while(this.results.next()){
-				Coach c = new Coach();
-				c.setId(this.results.getString("coachID"));
-				c.setfName(this.results.getString("coachFname"));
-				c.setlName(this.results.getString("coachLname"));
+				Team t = new Team();
+				t.setName(this.results.getString("teamName"));
+				t.setCoach(this.results.getString("headcoach"));
+				t.setLevel(this.results.getString("level"));
+				t.setDivision(this.results.getString("division"));
 
 				
 				table +="<tr>";
 				table +="<td>";
-				table += c.getId();
+				table += "<a href= readPlayer>" + t.getName() + "</a>";
 				table +="</td>";
 				table +="<td>";
-				table += c.getfName();
+				table += t.getCoach();
 				table +="</td>";
 				table +="<td>";
-				table += c.getlName();
+				table += t.getLevel();
 				table +="</td>";
 				table +="<td>";
-				   table += "<a href=updateCoachForm?name=" + c.getId() + " >update</a> <a href=deleteCoach?name=" + c.getId() + " >delete</a>";
+				table += t.getDivision();
+				table +="</td>";
+				table +="<td>";
+				   table += "<a href=updateTeamForm?name=" + t.getId() + " >update</a> <a href=deleteTeam?name=" + t.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

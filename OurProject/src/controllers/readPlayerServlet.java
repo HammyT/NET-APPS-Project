@@ -38,7 +38,7 @@ public class readPlayerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Create a ReadQuery helper object
-		readPlayerQuery rq = new readPlayerQuery("project", "root", "General1");
+		readPlayerQuery rq = new readPlayerQuery("project", "root", "");
 		
 		// Get the html table from the REadQuery object
 		rq.doRead();

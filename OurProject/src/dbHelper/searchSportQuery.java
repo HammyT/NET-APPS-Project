@@ -6,16 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Coach;
+
+import model.Sport;
 
 
-
-public class readCoachQuery {
+public class searchSportQuery {
 	
 	private Connection connection;
 	private ResultSet results;
 	
-	public readCoachQuery(String dbName, String uname, String pwd){
+	public searchSportQuery(String dbName, String uname, String pwd){
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		
 		// set up the driver
@@ -37,9 +37,8 @@ public class readCoachQuery {
 		}
 	}
 	
-	public void doRead(){
-		String query = "select * from coach";
-		
+	public void doRead(String keyword){
+		String query = "SELECT * FROM sport WHERE sportName LIKE '%" + keyword +"%'";		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
 			this.results= ps.executeQuery();
@@ -55,26 +54,23 @@ public class readCoachQuery {
 		
 		try {
 			while(this.results.next()){
-				Coach c = new Coach();
-				c.setId(this.results.getString("coachID"));
-				c.setfName(this.results.getString("coachFname"));
-				c.setlName(this.results.getString("coachLname"));
-
+				Sport s = new Sport();
+				s.setName(this.results.getString("sportName"));
+				s.setDescription(this.results.getString("sportDescription"));
+	
 				
 				table +="<tr>";
 				table +="<td>";
-				table += c.getId();
+				table += "<a href=OrgOrTeam.jsp>" + s.getName()+"</a>";
 				table +="</td>";
 				table +="<td>";
-				table += c.getfName();
+				table += s.getDescription();
 				table +="</td>";
 				table +="<td>";
-				table += c.getlName();
-				table +="</td>";
-				table +="<td>";
-				   table += "<a href=updateCoachForm?name=" + c.getId() + " >update</a> <a href=deleteCoach?name=" + c.getId() + " >delete</a>";
+				   table += "<a href=updateSportForm?name=" + s.getName() + " >update</a> <a href=deleteSport?name=" + s.getName() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
