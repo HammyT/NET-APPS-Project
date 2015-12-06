@@ -21,7 +21,7 @@ table {width: 100%;}
 	</tr>
 	<tr>
 		<td>
-			<p> <a href="sportList.jsp">Click Here</a> to Search by Sport </p>
+			<p> <a href="readSportServlet">Click Here</a> to Search by Sport </p>
 		</td>
 		<td>
 		<form>

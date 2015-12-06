@@ -8,14 +8,14 @@
 </head>
 <body>
 
-	<form id="loginForm" action="Login" method="post">
+	<form id="loginForm" action="login" method="post">
 	<h1>Login Here:</h1>	
 	<br>
 	<input type="text" name="username" placeholder="Username.." required>
 	<br>
 	<input type="password" name="password" placeholder="Password.." required>
 	<br>
-	<input type="submit" value="Login">
+	<input type="submit" value="login">
 	$(errorMessage)
 	</form>
 
