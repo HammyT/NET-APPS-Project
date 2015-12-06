@@ -26,7 +26,7 @@ table {width: 100%;}
 	</tr>
 		<tr>
 		<td>
-			<p> <a href="team.jsp"> Team </p>
+			<p> <a href="readTeam"> Team </p>
 		</td>
 	</tr>
 </table>

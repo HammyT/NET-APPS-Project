@@ -1,12 +1,10 @@
 package model;
 
 public class Player {
-private int id;
+private String id;
 private String fName;
 private String lName;
-private String position;
-private int number;
-private String email;
+private String gender;
 private int age;
 /**
  * 
@@ -17,30 +15,26 @@ public Player() {
  * @param id
  * @param fName
  * @param lName
- * @param position
- * @param number
- * @param email
+ * @param gender
  * @param age
  */
-public Player(int id, String fName, String lName, String position, int number, String email, int age) {
+public Player(String id, String fName, String lName, String gender, int age) {
 	this.id = id;
 	this.fName = fName;
 	this.lName = lName;
-	this.position = position;
-	this.number = number;
-	this.email = email;
+	this.gender = gender;
 	this.age = age;
 }
 /**
  * @return the id
  */
-public int getId() {
+public String getId() {
 	return id;
 }
 /**
  * @param id the id to set
  */
-public void setId(int id) {
+public void setId(String id) {
 	this.id = id;
 }
 /**
@@ -68,40 +62,16 @@ public void setlName(String lName) {
 	this.lName = lName;
 }
 /**
- * @return the position
+ * @return the gender
  */
-public String getPosition() {
-	return position;
+public String getGender() {
+	return gender;
 }
 /**
- * @param position the position to set
+ * @param gender the gender to set
  */
-public void setPosition(String position) {
-	this.position = position;
-}
-/**
- * @return the number
- */
-public int getNumber() {
-	return number;
-}
-/**
- * @param number the number to set
- */
-public void setNumber(int number) {
-	this.number = number;
-}
-/**
- * @return the email
- */
-public String getEmail() {
-	return email;
-}
-/**
- * @param email the email to set
- */
-public void setEmail(String email) {
-	this.email = email;
+public void setGender(String gender) {
+	this.gender = gender;
 }
 /**
  * @return the age

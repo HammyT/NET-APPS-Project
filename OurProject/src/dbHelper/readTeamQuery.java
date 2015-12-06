@@ -66,7 +66,7 @@ public class readTeamQuery {
 					table += t.getId();
 					table +="</td>";
 					table +="<td>";
-					table += t.getName();
+					table += "<a href= browse.jsp>" +t.getName() +"</a>";
 					table +="</td>";
 					table +="<td>";
 					table += t.getCoach();

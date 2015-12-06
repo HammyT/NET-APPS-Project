@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readTeamQuery;
+import dbHelper.readCoachQuery;
+
+
 
 /**
- * Servlet implementation class readTeamServlet
+ * Servlet implementation class readCoachServlet
  */
-@WebServlet("/readTeam")
-public class readTeamServlet extends HttpServlet {
+@WebServlet("/readCoach")
+public class readCoachServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public readTeamServlet() {
+    public readCoachServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,7 +40,7 @@ public class readTeamServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Create a ReadQuery helper object
-		readTeamQuery rq = new readTeamQuery("project", "root", "General1");
+		readCoachQuery rq = new readCoachQuery("project", "root", "General1");
 		
 		// Get the html table from the REadQuery object
 		rq.doRead();
@@ -46,7 +48,7 @@ public class readTeamServlet extends HttpServlet {
 		
 		// pass execution control to read.jsp along with the table
 		request.setAttribute("table", table);
-		String url = "/team.jsp";
+		String url = "/coach.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
