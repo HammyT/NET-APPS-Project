@@ -23,7 +23,7 @@ h1 {text-align: center}
 <table>
 	<tr>
 		<td colspan="2">
-			<h1>List of Teams!</h1>
+			<h1>List of Organizations!</h1>
 		</td>
 	</tr>
 	<tr>
@@ -34,7 +34,6 @@ h1 {text-align: center}
 
 
 </table>
-<br/>
-<a href="addOrgForm">Add an Organization</a>
+
 </body>
 </html>

@@ -69,7 +69,7 @@ public class readOrgQuery {
 				
 				table +="<tr>";
 				table +="<td>";
-				table += org.getName();
+				table += "<a href=readTeam>" + org.getName() + "</a>";
 				table +="</td>";
 				table +="<td>";
 				table += org.getAddress();

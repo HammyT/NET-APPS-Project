@@ -57,8 +57,9 @@ public class readSchoolQuery {
 				s.setName(this.results.getString("name"));
 				s.setAddress(this.results.getString("address"));
 				s.setNumber(this.results.getInt("schoolNumber"));
+				s.setCity(this.results.getString("schoolCity"));
 				s.setState(this.results.getString("schoolState"));
-				s.setZip(this.results.getString("schoolZip"));
+				s.setZip(this.results.getInt("schoolZip"));
 				s.setRegion(this.results.getString("schoolRegion"));
 				s.setAdmissionUrl(this.results.getString("admissionURL"));
 				s.setFinancialUrl(this.results.getString("financialURL"));
@@ -106,7 +107,7 @@ public class readSchoolQuery {
 				table +="</td>";
 			
 				table +="<td>";
-				   table += "<a href=usdateSchoolForm?name=" + s.getId() + " >usdate</a> <a href=deleteSchool?name=" + s.getId() + " >delete</a>";
+				   table += "<a href=usdateSchoolForm?id=" + s.getId() + " >update</a> <a href=deleteSchool?id=" + s.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 				

@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readTeamQuery;
+import dbHelper.updatePlayerQuery;
+import model.Player;
 
 /**
- * Servlet implementation class readTeamServlet
+ * Servlet implementation class updatePlayerServlet
  */
-@WebServlet("/readTeam")
-public class readTeamServlet extends HttpServlet {
+@WebServlet("/updatePlayerServlet")
+public class updatePlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public readTeamServlet() {
+    public updatePlayerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +31,7 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -37,16 +39,27 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Create a ReadQuery helper object
-		readTeamQuery rq = new readTeamQuery("project", "root", "General1");
+		// TODO Auto-generated method stub
+		  String id = request.getParameter("id");
+			 String fName = request.getParameter("fName");
+			 String lName = request.getParameter("lName");
+			 String gender = request.getParameter("gender");
+		    int age = Integer.parseInt(request.getParameter("age"));
 		
-		// Get the html table from the REadQuery object
-		rq.doRead();
-		String table = rq.getHTMLTable();
+	
+		  Player p = new Player();
+		    p.setId(id);
+			p.setfName(fName);
+			p.setlName(lName);
+			p.setGender(gender);
+			p.setAge(age);
 		
-		// pass execution control to read.jsp along with the table
-		request.setAttribute("table", table);
-		String url = "/team.jsp";
+
+		updatePlayerQuery uq = new updatePlayerQuery("grocery", "root", "");
+		uq.doUpdate(p);
+		
+	
+		String url = "/readOrg";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -36,7 +36,7 @@ public class readTeamQuery {
 		}
 		
 		public void doRead(){
-			String query = "select * from team";
+			String query = "select teamID, teamName, headcoach, level, division from team";
 			
 			try {
 				PreparedStatement ps = this.connection.prepareStatement(query);
@@ -54,7 +54,7 @@ public class readTeamQuery {
 			try {
 				while(this.results.next()){
 					Team t = new Team();
-					t.setId(this.results.getInt("teamID"));
+					t.setId(this.results.getString("teamID"));
 					t.setName(this.results.getString("teamName"));
 					t.setCoach(this.results.getString("headcoach"));
 					t.setLevel(this.results.getString("level"));
@@ -78,7 +78,7 @@ public class readTeamQuery {
 					table += t.getDivision();
 					table +="</td>";
 					table +="<td>";
-					   table += "<a href=updateTeamForm?name=" + t.getId() + " >update</a> <a href=deleteTeam?name=" + t.getId() + " >delete</a>";
+					   table += "<a href=updateTeamForm?id=" + t.getId() + " >update</a> <a href=deleteTeam?id=" + t.getId() + " >delete</a>";
 					table +="</td>";
 					table +="</tr>";
 					

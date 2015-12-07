@@ -1,6 +1,3 @@
-/**
- * 
- */
 package dbHelper;
 
 import java.sql.Connection;
@@ -9,24 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Organization;
-
-/**
- * @author craigpiercy
- *
- */
-public class readOrgRecord {
-	
+public class readPlayerRecord {
 	private Connection connection;
 	private ResultSet results;
 	
-	private Organization org = new Organization();
-	private String name;
+	private Player p = new Player();
+	private String id;
 	
-	public readOrgRecord(String dbName, String uname, String pwd, String name){
+	public readPlayerRecord(String dbName, String uname, String pwd, String id){
 		
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
-		this.name = name;
+		this.id = id;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -41,12 +31,12 @@ public class readOrgRecord {
 	}
 	
 	public void doRead(){
-		String query = "select * from org where orgName = ?";
+		String query = "select * from  where orgName = ?";
 		
 		try {
 			PreparedStatement ps = connection.prepareStatement(query);
 			
-			ps.setString(1, this.name);
+			ps.setString(1, this.id);
 			
 			this.results = ps.executeQuery();
 			
@@ -70,5 +60,4 @@ public class readOrgRecord {
 	public Organization getOrg(){
 		return this.org;
 	}
-	
 }

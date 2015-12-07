@@ -77,7 +77,7 @@ public class readPlayerQuery {
 				table += p.getGender();
 				table +="</td>";
 				table +="<td>";
-				   table += "<a href=updatePlayerForm?name=" + p.getId() + " >update</a> <a href=deletePlayer?name=" + p.getId() + " >delete</a>";
+				   table += "<a href=updatePlayerForm?id=" + p.getId() + " >update</a> <a href=deletePlayer?id=" + p.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 				

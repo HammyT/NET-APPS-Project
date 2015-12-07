@@ -60,7 +60,7 @@ public class searchLocationQuery {
 				s.setAddress(this.results.getString("address"));
 				s.setNumber(this.results.getInt("schoolNumber"));
 				s.setState(this.results.getString("schoolState"));
-				s.setZip(this.results.getString("schoolZip"));
+				s.setZip(this.results.getInt("schoolZip"));
 				s.setRegion(this.results.getString("schoolRegion"));
 				s.setAdmissionUrl(this.results.getString("admissionURL"));
 				s.setFinancialUrl(this.results.getString("financialURL"));

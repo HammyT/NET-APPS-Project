@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readTeamQuery;
+import dbHelper.updateTeamQuery;
+import model.Team;
 
 /**
- * Servlet implementation class readTeamServlet
+ * Servlet implementation class updateTeamServlet
  */
-@WebServlet("/readTeam")
-public class readTeamServlet extends HttpServlet {
+@WebServlet("/updateTeamServlet")
+public class updateTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public readTeamServlet() {
+    public updateTeamServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +31,7 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -37,16 +39,27 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Create a ReadQuery helper object
-		readTeamQuery rq = new readTeamQuery("project", "root", "General1");
+		// TODO Auto-generated method stub
+		  String id = request.getParameter("id"); 
+			String name = request.getParameter("name");
+			 String coach = request.getParameter("coach");
+			 String level = request.getParameter("level");
+			 String division = request.getParameter("division");
 		
-		// Get the html table from the REadQuery object
-		rq.doRead();
-		String table = rq.getHTMLTable();
+	
+		    Team t = new Team();
+		    t.setId(id);
+		    t.setName(name);
+		    t.setCoach(coach);
+		    t.setLevel(level);
+		    t.setDivision(division);
+		    
+
+		updateTeamQuery uq = new updateTeamQuery("grocery", "root", "");
+		uq.doUpdate(t);
 		
-		// pass execution control to read.jsp along with the table
-		request.setAttribute("table", table);
-		String url = "/team.jsp";
+	
+		String url = "/readOrg";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

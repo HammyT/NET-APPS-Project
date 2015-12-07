@@ -72,7 +72,7 @@ public class readCoachQuery {
 				table += c.getlName();
 				table +="</td>";
 				table +="<td>";
-				   table += "<a href=updateCoachForm?name=" + c.getId() + " >update</a> <a href=deleteCoach?name=" + c.getId() + " >delete</a>";
+				   table += "<a href=updateCoachForm?id=" + c.getId() + " >update</a> <a href=deleteCoach?id=" + c.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 			}

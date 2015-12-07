@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readTeamQuery;
+import model.Sport;
 
 /**
- * Servlet implementation class readTeamServlet
+ * Servlet implementation class updateSportFormServlet
  */
-@WebServlet("/readTeam")
-public class readTeamServlet extends HttpServlet {
+@WebServlet("/updateSportForm")
+public class updateSportFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public readTeamServlet() {
+    public updateSportFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +30,28 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		// TODO Auto-generated method stub
+	doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Create a ReadQuery helper object
-		readTeamQuery rq = new readTeamQuery("project", "root", "General1");
+		// TODO Auto-generated method stub
+		String name = request.getParameter("name");
 		
-		// Get the html table from the REadQuery object
-		rq.doRead();
-		String table = rq.getHTMLTable();
+
+		readSportRecord rr = new readSportRecord("project", "root", "", name);
 		
-		// pass execution control to read.jsp along with the table
-		request.setAttribute("table", table);
-		String url = "/team.jsp";
+		rr.doRead();
+		
+		Sport s = rr.getSport();
+		
+
+		request.setAttribute("sport", s);
+		
+		String url = "/updateSport.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

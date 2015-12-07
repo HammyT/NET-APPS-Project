@@ -9,19 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readTeamQuery;
+import dbHelper.updateSportQuery;
+import model.Sport;
 
 /**
- * Servlet implementation class readTeamServlet
+ * Servlet implementation class updateSportServlet
  */
-@WebServlet("/readTeam")
-public class readTeamServlet extends HttpServlet {
+@WebServlet("/updateSportServlet")
+public class updateSportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public readTeamServlet() {
+    public updateSportServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +31,7 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -37,16 +39,22 @@ public class readTeamServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Create a ReadQuery helper object
-		readTeamQuery rq = new readTeamQuery("project", "root", "General1");
+		// TODO Auto-generated method stub 
+			String name = request.getParameter("name");
+			String description = request.getParameter("description");
 		
-		// Get the html table from the REadQuery object
-		rq.doRead();
-		String table = rq.getHTMLTable();
+	
+		   Sport s = new Sport();
+		   s.setName(name);
+		   s.setDescription(description);
+	
 		
-		// pass execution control to read.jsp along with the table
-		request.setAttribute("table", table);
-		String url = "/team.jsp";
+
+		updateSportQuery uq = new updateSportQuery("grocery", "root", "");
+		uq.doUpdate(s);
+		
+	
+		String url = "/readSportServlet";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

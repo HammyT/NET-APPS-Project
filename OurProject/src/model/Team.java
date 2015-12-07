@@ -1,7 +1,7 @@
 package model;
 
 public class Team {
-private int id;
+private String id;
 private String name;
 private String coach;
 private String level;
@@ -18,7 +18,7 @@ public Team() {
  * @param level
  * @param division
  */
-public Team(int id, String name, String coach, String level, String division) {
+public Team(String id, String name, String coach, String level, String division) {
 	this.id = id;
 	this.name = name;
 	this.coach = coach;
@@ -28,13 +28,13 @@ public Team(int id, String name, String coach, String level, String division) {
 /**
  * @return the id
  */
-public int getId() {
+public String getId() {
 	return id;
 }
 /**
  * @param id the id to set
  */
-public void setId(int id) {
+public void setId(String id) {
 	this.id = id;
 }
 /**

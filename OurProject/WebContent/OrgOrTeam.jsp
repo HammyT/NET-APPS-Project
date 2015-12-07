@@ -21,7 +21,7 @@ table {width: 100%;}
 	</tr>
 	<tr>
 		<td>
-			<p> <a href="teamByOrg"> Organization</a> </p>
+			<p> <a href="readOrg"> Organization</a> </p>
 		</td>
 	</tr>
 		<tr>

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package dbHelper;
 
 import java.sql.Connection;
@@ -8,15 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * @author craigpiercy
- *
- */
-public class deleteOrgQuery {
+public class deleteSportQuery {
 	
 	private Connection connection;
 	
-	public deleteOrgQuery(String dbName, String uname, String pwd){
+	public deleteSportQuery(String dbName, String uname, String pwd){
 		
 		String url = "jdbc:mysql://localhost:3306/"+dbName;
 		
@@ -32,7 +25,7 @@ public class deleteOrgQuery {
 	
 	public void doDelete(String name){
 		// set up a String to hold our query
-		String query = "delete from org where orgName = ?";
+		String query = "delete from sport where sportName = ?";
 		
 		// create a preparedstatement using our query string
 		try {
@@ -50,5 +43,4 @@ public class deleteOrgQuery {
 		}
 
 	}
-
 }

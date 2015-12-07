@@ -38,7 +38,7 @@ public class readOrgServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Create a ReadQuery helper object
-		readOrgQuery rq = new readOrgQuery("project", "root", "");
+		readOrgQuery rq = new readOrgQuery("project", "root", "General1");
 		
 		// Get the html table from the REadQuery object
 		rq.doRead();
