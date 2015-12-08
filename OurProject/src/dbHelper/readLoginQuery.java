@@ -19,15 +19,15 @@ public class readLoginQuery {
 	private String upw = "";
 	
 	
-	public readLoginQuery(String uname, String pwd){
-		String url = "jdbc:mysql://localhost:3306/sportchirp";
+	public readLoginQuery(String dbname, String uname, String pwd){
+		String url = "jdbc:mysql://localhost:3306/"+ dbname;
 		
 		uName = uname;
 		upw = pwd;
 		// set up the driver
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			this.connection = DriverManager.getConnection(url, "root", "roswell16");
+			this.connection = DriverManager.getConnection(url, "root", "General1");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

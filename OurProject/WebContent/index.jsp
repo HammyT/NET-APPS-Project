@@ -46,9 +46,9 @@ table {width: 100%; border-collapse: collapse;}
 	</tr>
 	<tr>
 		<td colspan="2">
-	<form name=login action=login method=post>
-	<input type="submit" value="Login Here!">
-	</form>
+	
+	<a href=login.jsp> Login! </a>
+
 		</td>
 	</tr>
 

@@ -58,14 +58,14 @@ public class loginServlet extends HttpServlet {
 			PasswordService pws = new PasswordService();
 			String encryptedPass = pws.encrypt(password);
 			
-			readLoginQuery rlq = new readLoginQuery(username, encryptedPass);
+			readLoginQuery rlq = new readLoginQuery("project", username, encryptedPass);
 			
 			rlq.doRead();
 			x=rlq.checkTrue();
 
 			if(x==true)
 			{
-				url = "internalHomepage.jsp";
+				url = "internalHome.jsp";
 			} else {
 				String errorMessage = "Error: Could not recognize Username or Password";
 				session.setAttribute("loginAttempts", loginAttempts++);

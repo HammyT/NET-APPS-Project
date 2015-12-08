@@ -47,7 +47,7 @@ public class searchServlet extends HttpServlet {
 		
 		if(type.equals("Sport")){
 			searchSportQuery sq = new searchSportQuery("project", "root", "General1");
-			url = "/sport.jsp";
+			url = "/sportList.jsp";
 
 			sq.doRead(keyword);
 			String table = sq.getHTMLTable();
