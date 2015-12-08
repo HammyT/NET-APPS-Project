@@ -28,85 +28,85 @@ h1 {text-align: center}
       <label>
       School ID:
    </label>
-   <input type=text name=id value="<%= s.getId() %>" />
+   <input type=text name=id value="<%= s.getId() %>" required/>
   </td></tr>
 	<tr><td>
     <label>
       School Name:
    </label>
-   <input type=text name=name value="<%= s.getName() %>" />
+   <input type=text name=name value="<%= s.getName() %>" required/>
  	</td></tr>
 <tr><td>
    <label>
       School Number:
    </label>
-   <input type=text name=number value="<%= s.getNumber() %>" />
+   <input type=text name=number value="<%= s.getNumber() %>" required/>
  </td></tr>
  <tr><td>
    <label>
       School Address:
    </label>
-   <input type=text name=address value="<%= s.getAddress() %>" />
+   <input type=text name=address value="<%= s.getAddress() %>" required/>
  </td></tr>
    <tr><td>
    <label>
       School City:
    </label>
-   <input type=text name=city value="<%= s.getCity() %>" />
+   <input type=text name=city value="<%= s.getCity() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School State:
    </label>
-   <input type=text name=state value="<%= s.getState() %>" />
+   <input type=text name=state value="<%= s.getState() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Zip:
    </label>
-   <input type=text name=zip value="<%= s.getZip() %>" />
+   <input type=text name=zip value="<%= s.getZip() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Region:
    </label>
-   <input type=text name=region value="<%= s.getRegion() %>" />
+   <input type=text name=region value="<%= s.getRegion() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Country:
    </label>
-   <input type=text name=country value="<%= s.getCountry() %>" />
+   <input type=text name=country value="<%= s.getCountry() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Admission UrL:
    </label>
-   <input type=text name=admissionUrl value="<%= s.getAdmissionUrl() %>" />
+   <input type=url name=admissionUrl value="<%= s.getAdmissionUrl() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Financial Aid Url:
    </label>
-   <input type=text name=financialUrl value="<%= s.getFinancialUrl() %>" />
+   <input type=url name=financialUrl value="<%= s.getFinancialUrl() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Application Url:
    </label>
-   <input type=text name=applicationUrl value="<%= s.getApplicationUrl() %>" />
+   <input type=url name=applicationUrl value="<%= s.getApplicationUrl() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Net Price Url:
    </label>
-   <input type=text name=priceUrl value="<%= s.getPriceUrl() %>" />
+   <input type=url name=priceUrl value="<%= s.getPriceUrl() %>" required/>
 </td></tr>
    <tr><td>
    <label>
       School Email:
    </label>
-   <input type=text name=email value="<%= s.getEmail() %>" />
+   <input type=email name=email value="<%= s.getEmail() %>" required/>
 </td></tr>
   <tr><td>
    <input type=submit name=submit value="Update the School" />

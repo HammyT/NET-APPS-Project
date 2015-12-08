@@ -28,13 +28,13 @@ h1 {text-align: center}
       <label>
       Sport Name:
    </label>
-   <input type=text name=name value="<%= s.getName() %>" />
+   <input type=text name=name value="<%= s.getName() %>" required/>
   </td></tr>
 	<tr><td>
     <label>
       Sport Description:
    </label>
-   <input type=text name=description value="<%= s.getDescription() %>" />
+   <input type=text name=description value="<%= s.getDescription() %>" required/>
  	</td></tr>
 
   <tr><td>

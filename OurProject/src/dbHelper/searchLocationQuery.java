@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import model.Organization;
 import model.School;
+import model.Team;
 
 public class searchLocationQuery {
 	
@@ -37,7 +38,7 @@ public class searchLocationQuery {
 	}
 	
 	public void doRead(String keyword){
-		String query = "SELECT * FROM  school, org WHERE schoolState  LIKE '%"+ keyword + "%' AND orgState like '%" + keyword + "%'";
+		String query = "SELECT * FROM school, org, team WHERE team.orgName = org.orgName and team.schoolID = school.schoolID and schoolState  LIKE '%"+ keyword + "%' AND orgState like '%" + keyword + "%'";
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
@@ -90,11 +91,11 @@ public class searchLocationQuery {
 				table +="</td>";
 				table +="<td>";
 				table += s.getRegion();
-				table +="</td>";
-				table +="<td>";	
+				table +="</td>";;	
 				table +="<td>";
 				table += s.getCountry();
 				table +="</td>";
+				table +="<td>";
 				table += s.getAdmissionUrl();
 				table +="</td>";
 				table +="<td>";
@@ -147,6 +148,37 @@ public class searchLocationQuery {
 				   table += "<a href=updateOrgForm?name=" + org.getName() + " >update</a> <a href=deleteOrg?name=" + org.getName() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
+				
+				Team t = new Team();
+				t.setId(this.results.getString("teamID"));
+				t.setName(this.results.getString("teamName"));
+				t.setCoach(this.results.getString("headcoach"));
+				t.setLevel(this.results.getString("level"));
+				t.setDivision(this.results.getString("division"));
+
+				
+				table +="<tr>";
+				table +="<td>";
+				table += "<a href=browseServlet?id=" + t.getId() +">" + t.getId() + "</a>";
+				table +="</td>";
+				table +="<td>";
+				table += t.getName();
+				table +="</td>";
+				table +="<td>";
+				table += t.getCoach();
+				table +="</td>";
+				table +="<td>";
+				table += t.getLevel();
+				table +="</td>";
+				table +="<td>";
+				table += t.getDivision();
+				table +="</td>";
+				table +="<td>";
+				   table += "<a href=updateTeamForm?id=" + t.getId() + " >update</a> <a href=deleteTeam?id=" + t.getId() + " >delete</a>";
+				table +="</td>";
+				table +="</tr>";
+				
+				
 				
 			}
 		} catch (SQLException e) {

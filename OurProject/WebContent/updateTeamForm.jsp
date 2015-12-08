@@ -28,31 +28,31 @@ h1 {text-align: center}
       <label>
       Team ID:
    </label>
-   <input type=text name=id value="<%= t.getId() %>" />
+   <input type=text name=id value="<%= t.getId() %>" required/>
   </td></tr>
 	<tr><td>
     <label>
       Team Name:
    </label>
-   <input type=text name=name value="<%= t.getName() %>" />
+   <input type=text name=name value="<%= t.getName() %>" required/>
  	</td></tr>
 <tr><td>
    <label>
       Team Head Coach:
    </label>
-   <input type=text name=coach value="<%= t.getCoach() %>" />
+   <input type=text name=coach value="<%= t.getCoach() %>" required/>
  </td></tr>
  <tr><td>
    <label>
       Team Level:
    </label>
-   <input type=text name=level value="<%= t.getLevel() %>" />
+   <input type=text name=level value="<%= t.getLevel() %>" required/>
  </td></tr>
    <tr><td>
    <label>
       Team Division:
    </label>
-   <input type=text name=division value="<%= t.getDivision() %>" />
+   <input type=text name=division value="<%= t.getDivision() %>" required/>
 </td></tr>
 
   <tr><td>

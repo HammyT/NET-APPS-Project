@@ -28,19 +28,19 @@ h1 {text-align: center}
     <label>
       Coach ID:
    </label>
-   <input type=text name=id value="<%= c.getId() %>" />
+   <input type=text name=id value="<%= c.getId() %>" required/>
  	</td></tr>
 <tr><td>
    <label>
      Coach First Name:
    </label>
-   <input type=text name=fName value="<%= c.getfName() %>" />
+   <input type=text name=fName value="<%= c.getfName() %>" required/>
  </td></tr>
  <tr><td>
    <label>
       Coach Last Name:
    </label>
-   <input type=text name=lName value="<%= c.getlName() %>" />
+   <input type=text name=lName value="<%= c.getlName() %>" required/>
  </td></tr>
 
   <tr><td>

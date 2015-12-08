@@ -28,43 +28,43 @@ h1 {text-align: center}
     <label>
       Org. Name:
    </label>
-   <input type=text name=name value="<%= org.getName() %>" />
+   <input type=text name=name value="<%= org.getName() %>" required/>
  	</td></tr>
 <tr><td>
    <label>
       Org. Number:
    </label>
-   <input type=text name=number value="<%= org.getNumber() %>" />
+   <input type=text name=number value="<%= org.getNumber() %>" required/>
  </td></tr>
  <tr><td>
    <label>
       Org. Address:
    </label>
-   <input type=text name=address value="<%= org.getAddress() %>" />
+   <input type=text name=address value="<%= org.getAddress() %>" required/>
  </td></tr>
    <tr><td>
    <label>
       Org. City:
    </label>
-   <input type=text name=city value="<%= org.getCity() %>" />
+   <input type=text name=city value="<%= org.getCity() %>" required/>
 </td></tr>
    <tr><td>
       <label>
       Org. State:
    </label>
-   <input type=text name=state value="<%= org.getState() %>" />
+   <input type=text name=state value="<%= org.getState() %>" required/>
   </td></tr>
   <tr><td>
       <label>
       Org. Region:
    </label>
-   <input type=text name=region value="<%= org.getRegion() %>" />
+   <input type=text name=region value="<%= org.getRegion() %>" required/>
   </td></tr>
    <tr><td>
          <label>
       Product Zip:
    </label>
-   <input type=text name=zip value="<%= org.getZip() %>" />
+   <input type=text name=zip value="<%= org.getZip() %>" required/>
 </td></tr>
   <tr><td>
    <input type=submit name=submit value="Update the Organization" />

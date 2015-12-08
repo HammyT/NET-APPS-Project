@@ -54,6 +54,7 @@ public class searchTeamQuery {
 		try {
 			while(this.results.next()){
 				Team t = new Team();
+				t.setId(this.results.getString("teamID"));
 				t.setName(this.results.getString("teamName"));
 				t.setCoach(this.results.getString("headcoach"));
 				t.setLevel(this.results.getString("level"));
@@ -62,7 +63,10 @@ public class searchTeamQuery {
 				
 				table +="<tr>";
 				table +="<td>";
-				table += "<a href= readPlayer>" + t.getName() + "</a>";
+				table += "<a href=browseServlet?id=" + t.getId() +">" + t.getId() + "</a>";
+				table +="</td>";
+				table +="<td>";
+				table += t.getName();
 				table +="</td>";
 				table +="<td>";
 				table += t.getCoach();
@@ -74,7 +78,7 @@ public class searchTeamQuery {
 				table += t.getDivision();
 				table +="</td>";
 				table +="<td>";
-				   table += "<a href=updateTeamForm?name=" + t.getId() + " >update</a> <a href=deleteTeam?name=" + t.getId() + " >delete</a>";
+				   table += "<a href=updateTeamForm?id=" + t.getId() + " >update</a> <a href=deleteTeam?id=" + t.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 				

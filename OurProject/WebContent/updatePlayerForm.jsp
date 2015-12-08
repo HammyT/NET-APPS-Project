@@ -28,31 +28,31 @@ h1 {text-align: center}
     <label>
       Player ID:
    </label>
-   <input type=text name=id value="<%= p.getId() %>" />
+   <input type=text name=id value="<%= p.getId() %>" required/>
  	</td></tr>
 <tr><td>
    <label>
      Player First Name:
    </label>
-   <input type=text name=fName value="<%= p.getfName() %>" />
+   <input type=text name=fName value="<%= p.getfName() %>" required/>
  </td></tr>
  <tr><td>
    <label>
       Player Last Name:
    </label>
-   <input type=text name=lName value="<%= p.getlName() %>" />
+   <input type=text name=lName value="<%= p.getlName() %>" required/>
  </td></tr>
  <tr><td>
    <label>
       Player Gender:
    </label>
-   <input type=text name=gender value="<%= p.getGender() %>" />
+   <input type=text name=gender value="<%= p.getGender() %>" required/>
  </td></tr>
   <tr><td>
    <label>
       Player Age:
    </label>
-   <input type=text name=age value="<%= p.getAge() %>" />
+   <input type=text name=age value="<%= p.getAge() %>" required/>
  </td></tr>
   <tr><td>
    <input type=submit name=submit value="Update the Player" />
