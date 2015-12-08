@@ -8,11 +8,11 @@ import java.sql.SQLException;
 
 import model.School;
 
-public class readSchoolQuery {
+public class readSchoolByTeamQuery {
 	private Connection connection;
 	private ResultSet results;
 	
-	public readSchoolQuery(String dbName, String uname, String pwd){
+	public readSchoolByTeamQuery(String dbName, String uname, String pwd){
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		
 		// set up the driver
@@ -35,7 +35,8 @@ public class readSchoolQuery {
 	}
 	
 	public void doRead(String id){
-		String query = "select * from school where schoolID like'" + id + "'";
+		String query = "select school.schoolID,schoolName,schoolNumber,schoolAddress,schoolCity,schoolState,schoolZip,schoolRegion,schoolCountry,admissionURL,financialaidURL,applicationURL,netPriceURL,schoolEmail from school, team where team.schoolID = school.schoolID and team.teamID like'" + id + "'";
+		
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
@@ -54,15 +55,15 @@ public class readSchoolQuery {
 			while(this.results.next()){
 				School s = new School();
 				s.setId(this.results.getString("schoolID"));
-				s.setName(this.results.getString("name"));
-				s.setAddress(this.results.getString("address"));
+				s.setName(this.results.getString("schoolName"));
+				s.setAddress(this.results.getString("schoolAddress"));
 				s.setNumber(this.results.getInt("schoolNumber"));
 				s.setCity(this.results.getString("schoolCity"));
 				s.setState(this.results.getString("schoolState"));
 				s.setZip(this.results.getInt("schoolZip"));
 				s.setRegion(this.results.getString("schoolRegion"));
 				s.setAdmissionUrl(this.results.getString("admissionURL"));
-				s.setFinancialUrl(this.results.getString("financialURL"));
+				s.setFinancialUrl(this.results.getString("financialaidURL"));
 				s.setApplicationUrl(this.results.getString("applicationURL"));
 				s.setPriceUrl(this.results.getString("netPriceURL"));
 				s.setEmail(this.results.getString("schoolEmail"));
@@ -89,11 +90,11 @@ public class readSchoolQuery {
 				table +="</td>";
 				table +="<td>";
 				table += s.getRegion();
-				table +="</td>";
-				table +="<td>";	
+				table +="</td>";	
 				table +="<td>";
 				table += s.getCountry();
 				table +="</td>";
+				table +="<td>";
 				table += s.getAdmissionUrl();
 				table +="</td>";
 				table +="<td>";
@@ -107,7 +108,7 @@ public class readSchoolQuery {
 				table +="</td>";
 			
 				table +="<td>";
-				   table += "<a href=usdateSchoolForm?id=" + s.getId() + " >update</a> <a href=deleteSchool?id=" + s.getId() + " >delete</a>";
+				   table += "<a href=updateSchoolForm?id=" + s.getId() + " >update</a> <a href=deleteSchool?id=" + s.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 				
@@ -120,5 +121,4 @@ public class readSchoolQuery {
 		table += "</table>";
 		return table;
 	}
-
 }

@@ -1,24 +1,18 @@
 package dbHelper;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Organization;
+import model.Player;
 
-
-
-/**
- * @author craigpiercy
- *
- */
-public class readOrgQuery {
-	
+public class readPlayerByTeamQuery {
 	private Connection connection;
 	private ResultSet results;
 	
-	public readOrgQuery(String dbName, String uname, String pwd){
+	public readPlayerByTeamQuery(String dbName, String uname, String pwd){
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		
 		// set up the driver
@@ -40,8 +34,9 @@ public class readOrgQuery {
 		}
 	}
 	
-	public void doRead(String name){
-		String query = "select * from org where orgName like'" + name +"'";
+	public void doRead(String id){
+		String query = "select player.playerID,playerFname,playerLname,playerAge,playerGender from team, player, playerroster where player.playerID = playerroster.playerID and team.teamID = playerroster.teamID and team.teamID  like '" + id + "'";
+		
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
@@ -58,39 +53,31 @@ public class readOrgQuery {
 		
 		try {
 			while(this.results.next()){
-				Organization org = new Organization();
-				org.setName(this.results.getString("orgName"));
-				org.setNumber(this.results.getInt("orgNumber"));
-				org.setAddress(this.results.getString("orgAddress"));
-				org.setCity(this.results.getString("orgCity"));
-				org.setState(this.results.getString("orgState"));
-				org.setRegion(this.results.getString("orgRegion"));
-				org.setZip(this.results.getInt("orgZip"));
+				Player p = new Player();
+				p.setId(this.results.getString("playerID"));
+				p.setfName(this.results.getString("playerFname"));
+				p.setlName(this.results.getString("playerLname"));
+				p.setAge(this.results.getInt("playerAge"));
+				p.setGender(this.results.getString("playerGender"));
 				
 				table +="<tr>";
 				table +="<td>";
-				table += "<a href=readTeamByOrg?name=" + org.getName() + ">"+ org.getName() +"</a>";
+				table += p.getId();
 				table +="</td>";
 				table +="<td>";
-				table += org.getAddress();
+				table += p.getfName();
 				table +="</td>";
 				table +="<td>";
-				table += org.getCity();
+				table += p.getlName();
 				table +="</td>";
 				table +="<td>";
-				table += org.getState();
+				table += p.getAge();
 				table +="</td>";
 				table +="<td>";
-				table += org.getRegion();
+				table += p.getGender();
 				table +="</td>";
 				table +="<td>";
-				table += org.getZip();
-				table +="</td>";
-				table +="<td>";
-				table += org.getNumber();
-				table +="</td>";
-				table +="<td>";
-				   table += "<a href=updateOrgForm?name=" + org.getName() + " >update</a> <a href=deleteOrg?name=" + org.getName() + " >delete</a>";
+				   table += "<a href=updatePlayerForm?id=" + p.getId() + " >update</a> <a href=deletePlayer?id=" + p.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
 				

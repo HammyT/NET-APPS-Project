@@ -43,7 +43,7 @@ public class updateOrgFormServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		
 
-		readOrgRecord rr = new readOrgRecord("project", "root", "", name);
+		readOrgRecord rr = new readOrgRecord("project", "root", "General1", name);
 		
 		rr.doRead();
 		
@@ -52,7 +52,7 @@ public class updateOrgFormServlet extends HttpServlet {
 
 		request.setAttribute("org", org);
 		
-		String url = "/updateOrg.jsp";
+		String url = "/updateOrgForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

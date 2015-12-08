@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readOrgRecord;
+import dbHelper.readPlayerRecord;
 import model.Player;
 
 /**
@@ -43,7 +43,7 @@ public class updatePlayerFormServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		
 
-		readPlayerRecord rr = new readPlayerRecord("project", "root", "", id);
+		readPlayerRecord rr = new readPlayerRecord("project", "root", "General1", id);
 		
 		rr.doRead();
 		
@@ -52,7 +52,7 @@ public class updatePlayerFormServlet extends HttpServlet {
 
 		request.setAttribute("player", p);
 		
-		String url = "/updatePlayer.jsp";
+		String url = "/updatePlayerForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

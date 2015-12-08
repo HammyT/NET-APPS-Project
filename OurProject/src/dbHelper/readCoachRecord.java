@@ -6,16 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Player;
+import model.Coach;
 
-public class readPlayerRecord {
+public class readCoachRecord {
 	private Connection connection;
 	private ResultSet results;
 	
-	private Player p = new Player();
+	private Coach c = new Coach();
 	private String id;
 	
-	public readPlayerRecord(String dbName, String uname, String pwd, String id){
+	public readCoachRecord(String dbName, String uname, String pwd, String id){
 		
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		this.id = id;
@@ -33,7 +33,7 @@ public class readPlayerRecord {
 	}
 	
 	public void doRead(){
-		String query = "select * from player where playerID = ?";
+		String query = "select * from coach where coachID = ?";
 		
 		try {
 			PreparedStatement ps = connection.prepareStatement(query);
@@ -44,11 +44,9 @@ public class readPlayerRecord {
 			
 			this.results.next();
 			
-			p.setId(this.results.getString(1));
-			p.setfName(this.results.getString("playerFname"));
-			p.setlName(this.results.getString("playerLname"));
-			p.setAge(this.results.getInt("playerAge"));
-			p.setGender(this.results.getString("playerGender"));
+			c.setId(this.results.getString(1));
+			c.setfName(this.results.getString("coachFname"));
+			c.setlName(this.results.getString("coachLname"));
 			
 			
 		} catch (SQLException e) {
@@ -57,7 +55,7 @@ public class readPlayerRecord {
 		}
 	}
 	
-	public Player getPlayer(){
-		return this.p;
+	public Coach getCoach(){
+		return this.c;
 	}
 }

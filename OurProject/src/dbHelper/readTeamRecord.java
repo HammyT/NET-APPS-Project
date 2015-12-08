@@ -6,16 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Player;
+import model.Team;
 
-public class readPlayerRecord {
+
+public class readTeamRecord {
 	private Connection connection;
 	private ResultSet results;
 	
-	private Player p = new Player();
+	private Team t = new Team();
 	private String id;
 	
-	public readPlayerRecord(String dbName, String uname, String pwd, String id){
+	public readTeamRecord(String dbName, String uname, String pwd, String id){
 		
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		this.id = id;
@@ -33,7 +34,7 @@ public class readPlayerRecord {
 	}
 	
 	public void doRead(){
-		String query = "select * from player where playerID = ?";
+		String query = "select teamID, teamName, headcoach, level, division from team where teamID = ?";
 		
 		try {
 			PreparedStatement ps = connection.prepareStatement(query);
@@ -44,12 +45,13 @@ public class readPlayerRecord {
 			
 			this.results.next();
 			
-			p.setId(this.results.getString(1));
-			p.setfName(this.results.getString("playerFname"));
-			p.setlName(this.results.getString("playerLname"));
-			p.setAge(this.results.getInt("playerAge"));
-			p.setGender(this.results.getString("playerGender"));
-			
+			t.setId(this.results.getString(1));
+			t.setName(this.results.getString("teamName"));
+			t.setCoach(this.results.getString("headcoach"));
+			t.setLevel(this.results.getString("level"));
+			t.setDivision(this.results.getString("division"));
+
+
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -57,7 +59,7 @@ public class readPlayerRecord {
 		}
 	}
 	
-	public Player getPlayer(){
-		return this.p;
+	public Team getTeam(){
+		return this.t;
 	}
 }

@@ -35,8 +35,8 @@ public class readTeamQuery {
 			}
 		}
 		
-		public void doRead(){
-			String query = "select teamID, teamName, headcoach, level, division from team";
+		public void doRead(String id){
+			String query = "select teamID, teamName, headcoach, level, division from team where teamID like '" + id + "'";
 			
 			try {
 				PreparedStatement ps = this.connection.prepareStatement(query);
@@ -63,10 +63,10 @@ public class readTeamQuery {
 					
 					table +="<tr>";
 					table +="<td>";
-					table += t.getId();
+					table += "<a href=browseServlet?id=" + t.getId() +">" + t.getId() + "</a>";
 					table +="</td>";
 					table +="<td>";
-					table += "<a href= browse.jsp>" +t.getName() +"</a>";
+					table += t.getName();
 					table +="</td>";
 					table +="<td>";
 					table += t.getCoach();
@@ -81,6 +81,7 @@ public class readTeamQuery {
 					   table += "<a href=updateTeamForm?id=" + t.getId() + " >update</a> <a href=deleteTeam?id=" + t.getId() + " >delete</a>";
 					table +="</td>";
 					table +="</tr>";
+					
 					
 				}
 			} catch (SQLException e) {

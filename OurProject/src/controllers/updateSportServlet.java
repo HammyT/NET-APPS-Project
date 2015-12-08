@@ -15,7 +15,7 @@ import model.Sport;
 /**
  * Servlet implementation class updateSportServlet
  */
-@WebServlet("/updateSportServlet")
+@WebServlet("/updateSport")
 public class updateSportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,7 +50,7 @@ public class updateSportServlet extends HttpServlet {
 	
 		
 
-		updateSportQuery uq = new updateSportQuery("grocery", "root", "");
+		updateSportQuery uq = new updateSportQuery("project", "root", "General1");
 		uq.doUpdate(s);
 		
 	

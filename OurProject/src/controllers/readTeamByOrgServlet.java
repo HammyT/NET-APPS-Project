@@ -16,7 +16,7 @@ import dbHelper.readTeamByOrgQuery;
 /**
  * Servlet implementation class readTeamByOrgServlet
  */
-@WebServlet("/teamByOrg")
+@WebServlet("/readTeamByOrg")
 public class readTeamByOrgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,10 +40,10 @@ public class readTeamByOrgServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Create a ReadQuery helper object
-		readTeamByOrgQuery rq = new readTeamByOrgQuery("project", "root", "");
-		
+		readTeamByOrgQuery rq = new readTeamByOrgQuery("project", "root", "General1");
+		String name = request.getParameter("name");
 		// Get the html table from the REadQuery object
-		rq.doRead();
+		rq.doRead(name);
 		String table = rq.getHTMLTable();
 		
 		// pass execution control to read.jsp along with the table

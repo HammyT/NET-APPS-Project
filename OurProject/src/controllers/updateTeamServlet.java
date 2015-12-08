@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readTeamQuery;
 import dbHelper.updateTeamQuery;
 import model.Team;
 
 /**
  * Servlet implementation class updateTeamServlet
  */
-@WebServlet("/updateTeamServlet")
+@WebServlet("/updateTeam")
 public class updateTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,11 +56,18 @@ public class updateTeamServlet extends HttpServlet {
 		    t.setDivision(division);
 		    
 
-		updateTeamQuery uq = new updateTeamQuery("grocery", "root", "");
+		updateTeamQuery uq = new updateTeamQuery("project", "root", "General1");
 		uq.doUpdate(t);
 		
+		
+	   readTeamQuery rq = new readTeamQuery("project", "root", "General1");
+		
+		rq.doRead(id);
+		String table =  rq.getHTMLTable();
+		
+		request.setAttribute("table", table);
 	
-		String url = "/readOrg";
+		String url = "/team.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readCoachQuery;
 import dbHelper.updateCoachQuery;
 import model.Coach;
 
 /**
  * Servlet implementation class updateCoachServlet
  */
-@WebServlet("/updateCoachServlet")
+@WebServlet("/updateCoach")
 public class updateCoachServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -52,11 +53,18 @@ public class updateCoachServlet extends HttpServlet {
 	
 		
 
-		updateCoachQuery uq = new updateCoachQuery("grocery", "root", "");
+		updateCoachQuery uq = new updateCoachQuery("grocery", "root", "General1");
 		uq.doUpdate(c);
 		
+      readCoachQuery rq = new readCoachQuery("project", "root", "General1");
+		
+		rq.doRead(id);
+		String table =  rq.getHTMLTable();
+		
+		request.setAttribute("table", table);
 	
-		String url = "/readOrg";
+		String url = "/coach.jsp";
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

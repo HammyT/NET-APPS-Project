@@ -1,4 +1,5 @@
 package dbHelper;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,18 +8,11 @@ import java.sql.SQLException;
 
 import model.Organization;
 
-
-
-/**
- * @author craigpiercy
- *
- */
-public class readOrgQuery {
-	
+public class readOrgBySportQuery {
 	private Connection connection;
 	private ResultSet results;
 	
-	public readOrgQuery(String dbName, String uname, String pwd){
+	public readOrgBySportQuery(String dbName, String uname, String pwd){
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		
 		// set up the driver
@@ -41,7 +35,8 @@ public class readOrgQuery {
 	}
 	
 	public void doRead(String name){
-		String query = "select * from org where orgName like'" + name +"'";
+		String query = "SELECT org.orgName, orgNumber, orgAddress, orgCity, orgState, orgZip, orgRegion FROM org, team WHERE  org.orgName = team.orgName AND team.sportName LIKE '" + name + "'";
+		
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
@@ -90,9 +85,10 @@ public class readOrgQuery {
 				table += org.getNumber();
 				table +="</td>";
 				table +="<td>";
-				   table += "<a href=updateOrgForm?name=" + org.getName() + " >update</a> <a href=deleteOrg?name=" + org.getName() + " >delete</a>";
+				   table += "<a href=updateOrgForm?name=" + org.getName() + ">update</a> <a href=deleteOrg?name=" + org.getName() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
+				
 				
 			}
 		} catch (SQLException e) {

@@ -37,8 +37,8 @@ public class readCoachQuery {
 		}
 	}
 	
-	public void doRead(){
-		String query = "select * from coach";
+	public void doRead(String id){
+		String query = "select * from coach where coachID like '" + id + "'";
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);

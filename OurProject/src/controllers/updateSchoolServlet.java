@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readSchoolQuery;
 import dbHelper.updateSchoolQuery;
 import model.School;
 
 /**
  * Servlet implementation class updateSchoolServlet
  */
-@WebServlet("/updateSchoolServlet")
+@WebServlet("/updateSchool")
 public class updateSchoolServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -73,12 +74,17 @@ public class updateSchoolServlet extends HttpServlet {
 		    s.setEmail(email);
 		
 
-		updateSchoolQuery uq = new updateSchoolQuery("grocery", "root", "");
+		updateSchoolQuery uq = new updateSchoolQuery("project", "root", "General1");
 		uq.doUpdate(s);
 		
-	
-		String url = "/readSchool";
+        readSchoolQuery rq = new readSchoolQuery("project", "root", "General1");
 		
+		rq.doRead(id);
+		String table =  rq.getHTMLTable();
+		
+		request.setAttribute("table", table);
+	
+		String url = "/school.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

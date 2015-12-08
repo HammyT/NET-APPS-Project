@@ -35,8 +35,8 @@ public class readPlayerQuery {
 		}
 	}
 	
-	public void doRead(){
-		String query = "select * from player";
+	public void doRead(String id){
+		String query = "select * from player where playerID like '" + id + "'";
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);

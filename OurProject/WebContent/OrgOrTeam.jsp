@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%
+    String name = (String) request.getAttribute("name");
+
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,12 +26,12 @@ table {width: 100%;}
 	</tr>
 	<tr>
 		<td>
-			<p> <a href="readOrg"> Organization</a> </p>
+			<p> <a href=readOrgBySport?name=<%=name %> > Organization</a> </p>
 		</td>
 	</tr>
 		<tr>
 		<td>
-			<p> <a href="readTeam"> Team </p>
+			<p> <a href=readTeamBySport?name=<%=name %>> Team </a></p>
 		</td>
 	</tr>
 </table>

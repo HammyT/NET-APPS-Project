@@ -7,56 +7,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sport Chirp - Update a Organization</title>
+<title>Sport Chirp - Update an Organization</title>
+<style>
+body { background-image: url("sports.jpg");}
+a {color: black;}
+td {background-color: brown;}
+table, td, tr {boarder: 2px solid black;}
+table {width: 100%; border-collapse: collapse;}
+h1 {text-align: center}
+</style>
 </head>
 <body>
+	<table>
+		<tr><td>
 <h1> Sport Chirp - Update a Organization</h1>
-
+</td></tr>
 <form name=updateForm action=updateOrg method=get >
 
+	<tr><td>
     <label>
       Org. Name:
    </label>
    <input type=text name=name value="<%= org.getName() %>" />
-   <br />
-
+ 	</td></tr>
+<tr><td>
    <label>
       Org. Number:
    </label>
    <input type=text name=number value="<%= org.getNumber() %>" />
-   <br />
+ </td></tr>
+ <tr><td>
    <label>
       Org. Address:
    </label>
    <input type=text name=address value="<%= org.getAddress() %>" />
-   <br />
-   
+ </td></tr>
+   <tr><td>
    <label>
       Org. City:
    </label>
    <input type=text name=city value="<%= org.getCity() %>" />
-   <br />
-   
+</td></tr>
+   <tr><td>
       <label>
       Org. State:
    </label>
    <input type=text name=state value="<%= org.getState() %>" />
-   <br />
-   
+  </td></tr>
+  <tr><td>
       <label>
       Org. Region:
    </label>
    <input type=text name=region value="<%= org.getRegion() %>" />
-   <br />
-   
+  </td></tr>
+   <tr><td>
          <label>
       Product Zip:
    </label>
    <input type=text name=zip value="<%= org.getZip() %>" />
-   <br />
-   
+</td></tr>
+  <tr><td>
    <input type=submit name=submit value="Update the Organization" />
-
+   </td></tr>
+</table>
 </form>
 </body>
 </html>

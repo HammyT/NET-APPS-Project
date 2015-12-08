@@ -19,7 +19,7 @@ table {width: 100%;}
 <body>
 <table>
 	<tr>
-		<td colspan="2">
+		<td colspan="1">
 			<h1>List of Teams!</h1>
 		</td>
 	</tr>

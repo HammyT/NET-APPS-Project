@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readSchoolRecord;
-import model.School;
+import dbHelper.readOrgBySportQuery;
 
 /**
- * Servlet implementation class updateSchoolFormServlet
+ * Servlet implementation class readOrgBySportServlet
  */
-@WebServlet("/updateSchoolForm")
-public class updateSchoolFormServlet extends HttpServlet {
+@WebServlet("/readOrgBySport")
+public class readOrgBySportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateSchoolFormServlet() {
+    public readOrgBySportServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,32 +30,28 @@ public class updateSchoolFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	doPost(request, response);
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = request.getParameter("id");
+		// Create a ReadQuery helper object
+		readOrgBySportQuery rq = new readOrgBySportQuery("project", "root", "General1");
+		String name = request.getParameter("name");
+		// Get the html table from the REadQuery object
+		rq.doRead(name);
+		String table = rq.getHTMLTable();
 		
-
-		readSchoolRecord rr = new readSchoolRecord("project", "root", "General1", id);
-		
-		rr.doRead();
-		
-		School s = rr.getSchool();
-		
-
-		request.setAttribute("school", s);
-		
-		String url = "/updateSchoolForm.jsp";
+		// pass execution control to read.jsp along with the table
+		request.setAttribute("table", table);
+		String url = "/organization.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		
 	}
+
 
 }

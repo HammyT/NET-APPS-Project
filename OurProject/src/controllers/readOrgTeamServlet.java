@@ -9,20 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readSchoolRecord;
-import model.School;
 
 /**
- * Servlet implementation class updateSchoolFormServlet
+ * Servlet implementation class readOrgTeamServlet
  */
-@WebServlet("/updateSchoolForm")
-public class updateSchoolFormServlet extends HttpServlet {
+@WebServlet("/readOrgTeamServlet")
+public class readOrgTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public updateSchoolFormServlet() {
+    public readOrgTeamServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,28 +29,19 @@ public class updateSchoolFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	doPost(request, response);
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = request.getParameter("id");
-		
-
-		readSchoolRecord rr = new readSchoolRecord("project", "root", "General1", id);
-		
-		rr.doRead();
-		
-		School s = rr.getSchool();
-		
-
-		request.setAttribute("school", s);
-		
-		String url = "/updateSchoolForm.jsp";
+		// Create a ReadQuery helper object
+		String name = request.getParameter("name");
+		// Get the html table from the REadQuery object
+		// pass execution control to read.jsp along with the table
+		request.setAttribute("name", name);
+		String url = "/OrgOrTeam.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

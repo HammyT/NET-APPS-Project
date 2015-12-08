@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbHelper.readOrgRecord;
+import dbHelper.readTeamRecord;
 import model.Team;
 
 /**
@@ -43,16 +43,16 @@ public class updateTeamFormServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		
 
-		readTeamRecord rr = new readTeamRecord("project", "root", "", id);
+		readTeamRecord rr = new readTeamRecord("project", "root", "General1", id);
 		
 		rr.doRead();
 		
-		Team t = rr.getteam();
+		Team t = rr.getTeam();
 		
 
 		request.setAttribute("team", t);
 		
-		String url = "/updateTeam.jsp";
+		String url = "/updateTeamForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

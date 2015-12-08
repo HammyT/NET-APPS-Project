@@ -1,24 +1,18 @@
 package dbHelper;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Organization;
+import model.Coach;
 
-
-
-/**
- * @author craigpiercy
- *
- */
-public class readOrgQuery {
-	
+public class readCoachByTeamQuery {
 	private Connection connection;
 	private ResultSet results;
 	
-	public readOrgQuery(String dbName, String uname, String pwd){
+	public readCoachByTeamQuery(String dbName, String uname, String pwd){
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
 		
 		// set up the driver
@@ -40,8 +34,9 @@ public class readOrgQuery {
 		}
 	}
 	
-	public void doRead(String name){
-		String query = "select * from org where orgName like'" + name +"'";
+	public void doRead(String id){
+		String query = "Select coach.coachID,coachFname,coachLname,team.teamID,teamName,headcoach,level,division FROM coach, team, coachroster where coach.coachID = coachroster.coachID and team.teamID = coachroster.teamID and team.teamID like '" + id + "'";
+		
 		
 		try {
 			PreparedStatement ps = this.connection.prepareStatement(query);
@@ -58,42 +53,26 @@ public class readOrgQuery {
 		
 		try {
 			while(this.results.next()){
-				Organization org = new Organization();
-				org.setName(this.results.getString("orgName"));
-				org.setNumber(this.results.getInt("orgNumber"));
-				org.setAddress(this.results.getString("orgAddress"));
-				org.setCity(this.results.getString("orgCity"));
-				org.setState(this.results.getString("orgState"));
-				org.setRegion(this.results.getString("orgRegion"));
-				org.setZip(this.results.getInt("orgZip"));
+				Coach c = new Coach();
+				c.setId(this.results.getString("coachID"));
+				c.setfName(this.results.getString("coachFname"));
+				c.setlName(this.results.getString("coachLname"));
+
 				
 				table +="<tr>";
 				table +="<td>";
-				table += "<a href=readTeamByOrg?name=" + org.getName() + ">"+ org.getName() +"</a>";
+				table += c.getId();
 				table +="</td>";
 				table +="<td>";
-				table += org.getAddress();
+				table += c.getfName();
 				table +="</td>";
 				table +="<td>";
-				table += org.getCity();
+				table += c.getlName();
 				table +="</td>";
 				table +="<td>";
-				table += org.getState();
-				table +="</td>";
-				table +="<td>";
-				table += org.getRegion();
-				table +="</td>";
-				table +="<td>";
-				table += org.getZip();
-				table +="</td>";
-				table +="<td>";
-				table += org.getNumber();
-				table +="</td>";
-				table +="<td>";
-				   table += "<a href=updateOrgForm?name=" + org.getName() + " >update</a> <a href=deleteOrg?name=" + org.getName() + " >delete</a>";
+				   table += "<a href=updateCoachForm?id=" + c.getId() + " >update</a> <a href=deleteCoach?id=" + c.getId() + " >delete</a>";
 				table +="</td>";
 				table +="</tr>";
-				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readOrgQuery;
 import dbHelper.updateOrgQuery;
 import model.Organization;
 
@@ -57,13 +58,19 @@ public class updateOrgServlet extends HttpServlet {
 			org.setState(state);
 			org.setRegion(region);
 			org.setZip(zip);
-		
+			
+			updateOrgQuery uq = new updateOrgQuery("project", "root", "General1");
+			uq.doUpdate(org);
 
-		updateOrgQuery uq = new updateOrgQuery("grocery", "root", "");
-		uq.doUpdate(org);
+			
+		readOrgQuery rq = new readOrgQuery("project", "root", "General1");
 		
+		rq.doRead(name);
+		String table =  rq.getHTMLTable();
+		
+		request.setAttribute("table", table);
 	
-		String url = "/readOrg";
+		String url = "/organization.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

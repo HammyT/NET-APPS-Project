@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readSportRecord;
 import model.Sport;
 
 /**
@@ -42,7 +43,7 @@ public class updateSportFormServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		
 
-		readSportRecord rr = new readSportRecord("project", "root", "", name);
+		readSportRecord rr = new readSportRecord("project", "root", "General1", name);
 		
 		rr.doRead();
 		
@@ -51,7 +52,7 @@ public class updateSportFormServlet extends HttpServlet {
 
 		request.setAttribute("sport", s);
 		
-		String url = "/updateSport.jsp";
+		String url = "/updateSportForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -6,19 +6,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Player;
+import model.Sport;
 
-public class readPlayerRecord {
+
+public class readSportRecord {
 	private Connection connection;
 	private ResultSet results;
 	
-	private Player p = new Player();
-	private String id;
+	private Sport s = new Sport();
+	private String name;
 	
-	public readPlayerRecord(String dbName, String uname, String pwd, String id){
+	public readSportRecord(String dbName, String uname, String pwd, String name){
 		
 		String url = "jdbc:mysql://localhost:3306/" + dbName;
-		this.id = id;
+		this.name = name;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -33,23 +34,21 @@ public class readPlayerRecord {
 	}
 	
 	public void doRead(){
-		String query = "select * from player where playerID = ?";
+		String query = "select * from sport where sportName = ?";
 		
 		try {
 			PreparedStatement ps = connection.prepareStatement(query);
 			
-			ps.setString(1, this.id);
+			ps.setString(1, this.name);
 			
 			this.results = ps.executeQuery();
 			
 			this.results.next();
 			
-			p.setId(this.results.getString(1));
-			p.setfName(this.results.getString("playerFname"));
-			p.setlName(this.results.getString("playerLname"));
-			p.setAge(this.results.getInt("playerAge"));
-			p.setGender(this.results.getString("playerGender"));
-			
+			s.setName(this.results.getString(1));
+			s.setDescription(this.results.getString("sportDescription"));
+
+
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -57,7 +56,7 @@ public class readPlayerRecord {
 		}
 	}
 	
-	public Player getPlayer(){
-		return this.p;
+	public Sport getSport(){
+		return this.s;
 	}
 }

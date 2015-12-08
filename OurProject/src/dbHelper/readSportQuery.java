@@ -60,7 +60,7 @@ public class readSportQuery {
 				
 				table +="<tr>";
 				table +="<td>";
-				table += "<a href=OrgOrTeam.jsp>" + s.getName()+"</a>";
+				table += "<a href=readOrgTeamServlet?name=" + s.getName() + ">" + s.getName() +"</a>";
 				table +="</td>";
 				table +="<td>";
 				table += s.getDescription();

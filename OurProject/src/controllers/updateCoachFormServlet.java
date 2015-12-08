@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readCoachRecord;
 import model.Coach;
 
 
@@ -17,7 +18,7 @@ import model.Coach;
 /**
  * Servlet implementation class updateCoachFormServlet
  */
-@WebServlet("/updateCoachFormServlet")
+@WebServlet("/updateCoachForm")
 public class updateCoachFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,7 +46,7 @@ public class updateCoachFormServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		
 
-		readCoachRecord rr = new readCoachRecord("project", "root", "", name);
+		readCoachRecord rr = new readCoachRecord("project", "root", "General1", id);
 		
 		rr.doRead();
 		
@@ -54,7 +55,7 @@ public class updateCoachFormServlet extends HttpServlet {
 
 		request.setAttribute("coach", c);
 		
-		String url = "/updateCoach.jsp";
+		String url = "/updateCoachForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

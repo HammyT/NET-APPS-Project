@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbHelper.readPlayerQuery;
 import dbHelper.updatePlayerQuery;
 import model.Player;
 
 /**
  * Servlet implementation class updatePlayerServlet
  */
-@WebServlet("/updatePlayerServlet")
+@WebServlet("/updatePlayer")
 public class updatePlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -55,11 +56,17 @@ public class updatePlayerServlet extends HttpServlet {
 			p.setAge(age);
 		
 
-		updatePlayerQuery uq = new updatePlayerQuery("grocery", "root", "");
+		updatePlayerQuery uq = new updatePlayerQuery("project", "root", "General1");
 		uq.doUpdate(p);
 		
+       readPlayerQuery rq = new readPlayerQuery("project", "root", "General1");
+		
+		rq.doRead(id);
+		String table =  rq.getHTMLTable();
+		
+		request.setAttribute("table", table);
 	
-		String url = "/readOrg";
+		String url = "/player.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
