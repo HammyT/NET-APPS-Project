@@ -56,14 +56,14 @@ public class searchLocationQuery {
 			while(this.results.next()){
 				School s = new School();
 				s.setId(this.results.getString("schoolID"));
-				s.setName(this.results.getString("name"));
-				s.setAddress(this.results.getString("address"));
+				s.setName(this.results.getString("schoolName"));
+				s.setAddress(this.results.getString("schoolAddress"));
 				s.setNumber(this.results.getInt("schoolNumber"));
 				s.setState(this.results.getString("schoolState"));
 				s.setZip(this.results.getInt("schoolZip"));
 				s.setRegion(this.results.getString("schoolRegion"));
 				s.setAdmissionUrl(this.results.getString("admissionURL"));
-				s.setFinancialUrl(this.results.getString("financialURL"));
+				s.setFinancialUrl(this.results.getString("financialaidURL"));
 				s.setApplicationUrl(this.results.getString("applicationURL"));
 				s.setPriceUrl(this.results.getString("netPriceURL"));
 				s.setEmail(this.results.getString("schoolEmail"));

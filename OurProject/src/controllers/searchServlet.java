@@ -45,8 +45,8 @@ public class searchServlet extends HttpServlet {
 		String keyword = request.getParameter("searchR");
 		String url;
 		
-		if(type == "Sport"){
-			searchSportQuery sq = new searchSportQuery("project", "root", "");
+		if(type.equals("Sport")){
+			searchSportQuery sq = new searchSportQuery("project", "root", "General1");
 			url = "/sport.jsp";
 
 			sq.doRead(keyword);
@@ -59,8 +59,8 @@ public class searchServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
-		if(type == "Team Name"){
-			searchTeamQuery sq = new searchTeamQuery("project", "root", "");
+		if(type.equals("Team Name")){
+			searchTeamQuery sq = new searchTeamQuery("project", "root", "General1");
 			url = "/team.jsp";
 
 			sq.doRead(keyword);
@@ -73,8 +73,8 @@ public class searchServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
-		if(type == "State"){
-			searchLocationQuery sq = new searchLocationQuery("project", "root", "");
+		if(type.equals("State")){
+			searchLocationQuery sq = new searchLocationQuery("project", "root", "General1");
 			url = "/location.jsp";
 
 			sq.doRead(keyword);

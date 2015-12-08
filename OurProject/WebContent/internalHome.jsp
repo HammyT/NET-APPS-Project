@@ -24,7 +24,7 @@ table {width: 100%;}
 			<p> <a href="readSportServlet">Click Here</a> to Search by Sport </p>
 		</td>
 		<td>
-		<form>
+		<form action=searchServlet method=get>
 			<label>Search By: </label>
 			<input list="search" name="searchType" placeholder="Select a Field..." />
 				<datalist id="search">
